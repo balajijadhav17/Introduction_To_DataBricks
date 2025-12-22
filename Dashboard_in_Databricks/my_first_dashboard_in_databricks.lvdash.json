@@ -1,0 +1,408 @@
+{
+  "datasets": [
+    {
+      "name": "7cd9ca2b",
+      "displayName": "customers_enr",
+      "queryLines": [
+        "SELECT * FROM my_first_catalog.silver.customers_enr"
+      ]
+    },
+    {
+      "name": "a91c1017",
+      "displayName": "products_enr",
+      "queryLines": [
+        "SELECT * FROM my_first_catalog.silver.products_enr"
+      ]
+    },
+    {
+      "name": "f7b84edd",
+      "displayName": "sales_enr",
+      "queryLines": [
+        "SELECT * FROM my_first_catalog.silver.sales_enr"
+      ]
+    },
+    {
+      "name": "f37c7a15",
+      "displayName": "store_enr",
+      "queryLines": [
+        "SELECT * FROM my_first_catalog.silver.store_enr"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "72ca301e",
+      "displayName": "bar and pie chart",
+      "layout": [
+        {
+          "widget": {
+            "name": "bedc11be",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "a91c1017",
+                  "fields": [
+                    {
+                      "name": "category",
+                      "expression": "`category`"
+                    },
+                    {
+                      "name": "count(product_id)",
+                      "expression": "COUNT(`product_id`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "category",
+                  "axis": {
+                    "title": "Category"
+                  },
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "count(product_id)",
+                  "axis": {
+                    "title": "Total number of products",
+                    "hideGrid": false
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Total number of products of each category",
+                "showDescription": false
+              },
+              "mark": {
+                "colors": [
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 3
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 2
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 3
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 4
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 5
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 6
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 7
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 8
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 9
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 10
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "9d5dab93",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "a91c1017",
+                  "fields": [
+                    {
+                      "name": "count(product_id)",
+                      "expression": "COUNT(`product_id`)"
+                    },
+                    {
+                      "name": "category",
+                      "expression": "`category`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "pie",
+              "encodings": {
+                "angle": {
+                  "fieldName": "count(product_id)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "category",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 0,
+            "width": 3,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    },
+    {
+      "name": "58bcc0a2",
+      "displayName": "histogram",
+      "layout": [
+        {
+          "widget": {
+            "name": "6c61388e",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "a91c1017",
+                  "fields": [
+                    {
+                      "name": "bin(price, binWidth=50)",
+                      "expression": "BIN_FLOOR(`price`, 50)"
+                    },
+                    {
+                      "name": "count(product_id)",
+                      "expression": "COUNT(`product_id`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "histogram",
+              "encodings": {
+                "x": {
+                  "fieldName": "bin(price, binWidth=50)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "count(product_id)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              },
+              "mark": {
+                "colors": [
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 7
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 2
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 3
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 4
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 5
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 6
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 7
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 8
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 9
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 10
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 3,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    },
+    {
+      "name": "8e5f23ff",
+      "displayName": "counter",
+      "layout": [
+        {
+          "widget": {
+            "name": "60604d58",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "a91c1017",
+                  "fields": [
+                    {
+                      "name": "count(product_id)",
+                      "expression": "COUNT(`product_id`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "count(product_id)"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Total number of products\n"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 2,
+            "height": 2
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    },
+    {
+      "name": "d00db1e6",
+      "displayName": "Scatter",
+      "layout": [
+        {
+          "widget": {
+            "name": "382be5dd",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "f7b84edd",
+                  "fields": [
+                    {
+                      "name": "discount",
+                      "expression": "`discount`"
+                    },
+                    {
+                      "name": "pricePersale",
+                      "expression": "`pricePersale`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "scatter",
+              "encodings": {
+                "x": {
+                  "fieldName": "discount",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "pricePersale",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 4,
+            "height": 8
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}
