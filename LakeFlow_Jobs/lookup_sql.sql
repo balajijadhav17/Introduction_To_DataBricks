@@ -1,0 +1,1 @@
+select * from my_first_catalog.bronze.lookup_table;
